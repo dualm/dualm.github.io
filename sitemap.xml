@@ -3,11 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://dualm.github.io/categories/</loc>
+    <loc>https://dualm.github.io/</loc>
+    <lastmod>2019-09-16T15:47:27+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dualm.github.io/</loc>
+    <loc>https://dualm.github.io/post/</loc>
+    <lastmod>2019-09-16T15:47:27+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dualm.github.io/2019/09/16/tabledriventests/</loc>
+    <lastmod>2019-09-16T15:47:27+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dualm.github.io/categories/</loc>
   </url>
   
   <url>
