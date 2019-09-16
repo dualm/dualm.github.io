@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-  <title>TableDrivenTests</title>
+  <title>表格驱动测试</title>
   <script src="https://dualm.github.io/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
   <link rel="import" href="https://dualm.github.io/bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="https://dualm.github.io/bower_components/paper-drawer-panel/paper-drawer-panel.html">
@@ -138,11 +138,9 @@
 <div class="content">
 
   <div class="article">
-    <div class="title">TableDrivenTests</div>
+    <div class="title">表格驱动测试</div>
      
     <div class="description">
-
-<h1 id="表格驱动测试">表格驱动测试</h1>
 
 <h2 id="简介">简介</h2>
 
@@ -152,37 +150,69 @@
 
 <h2 id="一个-表格驱动测试的例子">一个 表格驱动测试的例子</h2>
 
-<p>下面这段代码截取自fmt包。</p>
-
-<pre><code class="language-go">var flagtests = []struct {
-	in  string
-	out string
+<p>下面这段代码截取自fmt包。
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 0
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">flagtests</span> = []<span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">in</span>  <span style="color:#66d9ef">string</span>
+	<span style="color:#a6e22e">out</span> <span style="color:#66d9ef">string</span>
 }{
-	{&quot;%a&quot;, &quot;[%a]&quot;},
-	{&quot;%-a&quot;, &quot;[%-a]&quot;},
-	{&quot;%+a&quot;, &quot;[%+a]&quot;},
-	{&quot;%#a&quot;, &quot;[%#a]&quot;},
-	{&quot;% a&quot;, &quot;[% a]&quot;},
-	{&quot;%0a&quot;, &quot;[%0a]&quot;},
-	{&quot;%1.2a&quot;, &quot;[%1.2a]&quot;},
-	{&quot;%-1.2a&quot;, &quot;[%-1.2a]&quot;},
-	{&quot;%+1.2a&quot;, &quot;[%+1.2a]&quot;},
-	{&quot;%-+1.2a&quot;, &quot;[%+-1.2a]&quot;},
-	{&quot;%-+1.2abc&quot;, &quot;[%+-1.2a]bc&quot;},
-	{&quot;%-1.2abc&quot;, &quot;[%-1.2a]bc&quot;},
+	{<span style="color:#e6db74">&#34;%a&#34;</span>, <span style="color:#e6db74">&#34;[%a]&#34;</span>},
+	{<span style="color:#e6db74">&#34;%-a&#34;</span>, <span style="color:#e6db74">&#34;[%-a]&#34;</span>},
+	{<span style="color:#e6db74">&#34;%+a&#34;</span>, <span style="color:#e6db74">&#34;[%+a]&#34;</span>},
+	{<span style="color:#e6db74">&#34;%#a&#34;</span>, <span style="color:#e6db74">&#34;[%#a]&#34;</span>},
+	{<span style="color:#e6db74">&#34;% a&#34;</span>, <span style="color:#e6db74">&#34;[% a]&#34;</span>},
+	{<span style="color:#e6db74">&#34;%0a&#34;</span>, <span style="color:#e6db74">&#34;[%0a]&#34;</span>},
+	{<span style="color:#e6db74">&#34;%1.2a&#34;</span>, <span style="color:#e6db74">&#34;[%1.2a]&#34;</span>},
+	{<span style="color:#e6db74">&#34;%-1.2a&#34;</span>, <span style="color:#e6db74">&#34;[%-1.2a]&#34;</span>},
+	{<span style="color:#e6db74">&#34;%+1.2a&#34;</span>, <span style="color:#e6db74">&#34;[%+1.2a]&#34;</span>},
+	{<span style="color:#e6db74">&#34;%-+1.2a&#34;</span>, <span style="color:#e6db74">&#34;[%+-1.2a]&#34;</span>},
+	{<span style="color:#e6db74">&#34;%-+1.2abc&#34;</span>, <span style="color:#e6db74">&#34;[%+-1.2a]bc&#34;</span>},
+	{<span style="color:#e6db74">&#34;%-1.2abc&#34;</span>, <span style="color:#e6db74">&#34;[%-1.2a]bc&#34;</span>},
 }
-func TestFlagParser(t *testing.T) {
-	var flagprinter flagPrinter
-	for _, tt := range flagtests {
-		t.Run(tt.in, func(t *testing.T) {
-			s := Sprintf(tt.in, &amp;flagprinter)
-			if s != tt.out {
-				t.Errorf(&quot;got %q, want %q&quot;, s, tt.out)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestFlagParser</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">flagprinter</span> <span style="color:#a6e22e">flagPrinter</span>
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">tt</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">flagtests</span> {
+		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">in</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+			<span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Sprintf</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">in</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">flagprinter</span>)
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">s</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">out</span> {
+				<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;got %q, want %q&#34;</span>, <span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">out</span>)
 			}
 		})
 	}
-}
-</code></pre>
+}</code></pre></td></tr></table>
+</div>
+</div></p>
 
 <p>请留意t.Errorf可以提供详细的错误信息，包括测试结果、预期的结果，输入参数可以用来区分各项子测试。一旦测试没有通过，便可以在无需查看测试代码的前提下，仅从错误信息中即可得知是哪一项测试出了问题，以及发生问题的原因。</p>
 
