@@ -140,6 +140,18 @@
 
 
   <div class="article">
+    <div class="title"><a href="http://dualm.github.io/2019/12/19/strings/">Strings</a></div>
+     
+    <div class="description">strings库学习笔记 strings库包括一些用于以UTF-8编码的字符串的处理方法。内容包括：
+ 类型：
+// 用于通过Write方法高效建立string。最小化了内存复制。零值可用。不要复制非空Builder // type Builder struct { // addr *Builder // of receiver, to detect copies by value // buf []byte // } type Builder  // 用于从string中读取。零值相当于空string的Reader // type Reader struct { //	s string //	i int64 // current reading index //	prevRune int // index of previous rune; or &lt; 0 // } type Reader  // 用于批量进行string的替换动作。go程安全 // type Replacer struct { //	once sync.</div>
+    <div class="tags">
+      19 Dec 2019
+       
+    </div>
+  </div>
+
+  <div class="article">
     <div class="title"><a href="http://dualm.github.io/2019/12/18/bytes/">Bytes</a></div>
      
     <div class="description">bytes库学习笔记 bytes库主要用于byte类切片的处理。包括内容如下：

@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://dualm.github.io/2019/12/18/bytes/</loc>
-    <lastmod>2019-12-18T17:06:39+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://dualm.github.io/</loc>
-    <lastmod>2019-12-18T17:06:39+08:00</lastmod>
+    <lastmod>2019-12-19T11:14:39+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://dualm.github.io/post/</loc>
+    <lastmod>2019-12-19T11:14:39+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://dualm.github.io/2019/12/19/strings/</loc>
+    <lastmod>2019-12-19T11:14:39+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://dualm.github.io/2019/12/18/bytes/</loc>
     <lastmod>2019-12-18T17:06:39+08:00</lastmod>
   </url>
   

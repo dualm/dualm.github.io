@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-  <title>Bytes</title>
+  <title>Strings</title>
   <script src="http://dualm.github.io//bower_components/webcomponentsjs/webcomponents-lite.js"></script>
   <link rel="import" href="http://dualm.github.io//bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="http://dualm.github.io//bower_components/paper-drawer-panel/paper-drawer-panel.html">
@@ -138,96 +138,87 @@
 <div class="content">
 
   <div class="article">
-    <div class="title">Bytes</div>
+    <div class="title">Strings</div>
      
     <div class="description">
 
-<h1 id="bytes库学习笔记">bytes库学习笔记</h1>
+<h1 id="strings库学习笔记">strings库学习笔记</h1>
 
-<p>bytes库主要用于byte类切片的处理。包括内容如下：</p>
+<p>strings库包括一些用于以UTF-8编码的字符串的处理方法。内容包括：</p>
 
 <ul>
-<li><p>常量：</p>
-
-<pre><code class="language-go">const MinRead = 512
-</code></pre></li>
-
-<li><p>变量：</p>
-
-<pre><code class="language-go">var ErrTooLarge = errors.New(&quot;bytes.Buffer: too large&quot;)
-</code></pre></li>
-
 <li><p>类型：</p>
 
-<ul>
-<li><pre><code class="language-go">// 大小可变的bytes数据缓冲，拥有Read和Write方法。零值为空Buffer
-// type Buffer struct {
-//  buf      []byte // contents are the bytes buf[off : len(buf)]
-//  off      int    // read at &amp;buf[off], write at &amp;buf[len(buf)]
-//  lastRead readOp // last read operation, so that Unread* can work correctly.
+<pre><code class="language-go">// 用于通过Write方法高效建立string。最小化了内存复制。零值可用。不要复制非空Builder
+// type Builder struct {
+// 	addr *Builder // of receiver, to detect copies by value
+// 	buf  []byte
 // }
-type Buffer
-</code></pre></li>
+type Builder
+</code></pre>
 
-<li><pre><code class="language-go">// 增加了Read、Seek方法的byte切片，并且是只读的。零值为操作空切片的Reader
+<pre><code class="language-go">// 用于从string中读取。零值相当于空string的Reader
 // type Reader struct {
-//  s        []byte
-//  i        int64 // current reading index
-//  prevRune int   // index of previous rune; or &lt; 0
+//	s        string
+//	i        int64 // current reading index
+//	prevRune int   // index of previous rune; or &lt; 0
 // }
 type Reader
+</code></pre>
+
+<pre><code class="language-go">// 用于批量进行string的替换动作。go程安全
+// type Replacer struct {
+//	once   sync.Once // guards buildOnce method
+//	r      replacer
+//	oldnew []string
+// }
+type Replacer
 </code></pre></li>
-</ul></li>
 
 <li><p>函数：</p>
 
 <ul>
-<li><p>比较：Compare、Equal、EqualFold；</p></li>
-
-<li><p>包含：Contains、ContainsAny、ContainsRune、HasPrefix、HasSuffix；</p></li>
-
-<li><p>统计：Count；</p></li>
-
-<li><p>拆分：Fields、FieldsFunc、Split、SplitAfter、SplitAfterN、SplitN；</p></li>
-
-<li><p>合并：Join；</p></li>
-
-<li><p>变更元素：Map、Repeat、Replace、ReplaceAll、Title、ToLower、ToLowerSpecial、ToTitle、ToTitleSpectial、ToUpper、ToUpperSpecial、ToValidUTF8；</p></li>
-
-<li><p>获取元素索引：Index、IndexAny、IndexByte、IndexFunc、IndexRune、LastIndex、LastIndexAny、LastIndexByte、LastIndexFunc；</p></li>
-
-<li><p>类型转换：Rune；</p></li>
-
-<li><p>Trim：Trim、TrimFunc、TrimLeft、TrimLeftFunc、TrimRight、TrimRightFunc、TrimPrefix、TrimSuffix、TrimSpace；</p></li>
+<li>比较：Compare、EqualFold；</li>
+<li>包含：Contains、ContainsAny、ContainsRune、HasPrefix、HasSuffix、</li>
+<li>统计：Count；</li>
+<li>拆分：Fields、FieldsFunc、Split、SplitAfter、SplitAfterN、SplitN；</li>
+<li>索引：Index、IndexAny、IndexRune、IndexFunc、LastIndex、LastIndexAny、LastIndexByte、LastIndexFunc；</li>
+<li>合并：Join；</li>
+<li>变更：Map、Repeat、Replace、ReplaceAll、ToLower、ToLowerSpecial、ToTitle、ToTitleSpecial、ToUpper、ToUpperSpecial、ToValidUTF8；</li>
+<li>Trim：Trim、TrimFunc、TrimLeft、TrimLeftFunc、TrimRight、TrimRightFunc、TrimPrefix、TrimSuffix、TrimSpace；</li>
 </ul></li>
 
-<li><p>Buffer函数：</p>
+<li><p>Builer函数：</p>
 
 <ul>
-<li>生成：NewBuffer、NewBufferString；</li>
-<li>类型转换：Bytes、String；</li>
 <li>属性：Cap、Grow、Len；</li>
-<li>读：Next、Read、ReadByte、ReadBytes、ReadFrom、ReadRune、ReadString；</li>
-<li>撤回：UnreadByte、UnreadRune；</li>
-<li>删除：Reset、Truncate；</li>
-<li>写：Write、WriteByte、WriteRune、WriteString、WriteTo；
-<br /></li>
+<li>删除：Reset；</li>
+<li>转换：String；</li>
+<li>写：Write、WriteByte、WriteRune、WriteString；</li>
 </ul></li>
 
 <li><p>Reader函数：</p>
 
 <ul>
 <li>生成：NewReader；</li>
-<li>属性：Len、Size；</li>
-<li>读：Read、ReadAt、ReadByte、ReadRune、</li>
+<li>属性：Len，Size；</li>
 <li>删除：Reset；</li>
 <li>查找：Seek；</li>
-<li>输出：WriteTo；</li>
+<li>撤回：UnreadByte、UnreadRune；</li>
+<li>读：Read、ReadAt、ReadByte、ReadRune；</li>
+<li>写：WriteTo；</li>
+</ul></li>
+
+<li><p>Replacer函数：</p>
+
+<ul>
+<li>生成：NewReplacer；</li>
+<li>执行：Replace、WriteString；</li>
 </ul></li>
 </ul>
 </div>
     <div class="tags">
-      18 Dec 2019
+      19 Dec 2019
        
     </div>
     
@@ -237,11 +228,11 @@ type Reader
 
 <paper-item>
   
-    <a href="http://dualm.github.io/2019/09/16/tabledriventests/"><paper-fab icon="chevron-left"><a></a></paper-fab></a>
+    <a href="http://dualm.github.io/2019/12/18/bytes/"><paper-fab icon="chevron-left"><a></a></paper-fab></a>
   
     <div class="flex"></div>
   
-    <a href="http://dualm.github.io/2019/12/19/strings/"><paper-fab icon="chevron-right"></paper-fab></a>
+    <paper-fab disabled icon="chevron-right"></paper-fab>
   
 </paper-item>
 
